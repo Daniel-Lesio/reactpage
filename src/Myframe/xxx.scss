@@ -1,0 +1,17 @@
+.navbar{
+    transition: all ease-in-out .3s;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.sidenav {
+    position: fixed;
+    height : calc(100vh - 70px);
+    top: 70;
+    left: 0;
+    background: #fff;
+    width: 250px;
+}

@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap');
+@import './assets/normalizer';
+* , *::after ,*::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: #f0f0f0;
+}
+body{
+  font-family: 'Arimo', sans-serif;
+}
+.test{
+  background: cadetblue;
+}
+.nav{
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  .menu{
+    flex-grow: 1;
+  }
+  .brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .nav-right{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+}
+
+.switch{
+  cursor: pointer;
+  background: #f0f0f0;
+  width: 80px!important;
+  border-radius: 50px;
+  height: 40px;
+  justify-items: baseline;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+ .switch-circle{
+  position: absolute;
+  height: 35px;
+  width:35px ;
+  right: 5px;
+  border-radius: 50%;
+  background: rgba(#1b1b1b , 0.7);
+  z-index: 3;
+ } 
+}
+.menu{
+  display: flex;
+  align-items: center;
+}
+
+.sidenav {
+    position: fixed;
+    height : calc(100vh - 70px);
+    top: 70px;
+    left: 0;
+    background: #fff;
+    width: 300px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu-btn{
+  cursor: pointer;
+  height: 70px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: all ease-in-out .3s;
+  &:hover{
+    filter: opacity(.8);
+  }
+    span{
+      transition: all ease-in-out .3s;
+      width: 40px;
+      height: 4px;
+      border-radius: 3px;
+      background: red;
+      &:first-child{
+        transform: translateY(15px);
+      }
+      &:last-child{
+        transform: translateY(-15px);
+      }
+    }  
+  }
+  .menu-btn-active{
+    span:nth-child(1){
+      transform: rotate(45deg) translateY(5px);
+    }
+    span:nth-child(2){
+      width: 0;
+
+    }
+    span:nth-child(3){
+      transform: rotate(-45deg)  translateY(-5px);
+    }
+  }
+
+  .cls-1{fill:#fff;stroke:#000;stroke-miterlimit:10;}
+
+  .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px!important;
+    width: 70px;
+    padding-top: 5px;
+    padding-left: 2px;
+    svg{
+      max-height: 60px!important;
+    }
+  }
