@@ -2,9 +2,13 @@ import React from 'react'
 
 export default function Logo() {
     return (
-        <div className='logo'>
-            <svg  
-            ><g id="Warstwa_2" data-name="Warstwa 2"><g id="Warstwa_1-2" data-name="Warstwa 1"><path class="cls-1" fill='red' d="M60.89,50h-18a12,12,0,1,0-24,0H.89l30-49Z"/></g></g></svg>
+        <div className='logo' style={{display : 'flex' ,alignItems : 'center'  }}>
+                <h1>MyApp</h1>
+                <svg viewBox="0 0 500 500" width="50px" height='50px'   id="blobSvg">
+                  <path id="blob" d="M419,348Q363,446,266,418.5Q169,391,96.5,320.5Q24,250,96.5,179.5Q169,109,266,81.5Q363,54,419,152Q475,250,419,348Z" fill="#d1d8e0"></path>
+                </svg>
+                
+
         </div>
 
     )

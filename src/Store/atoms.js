@@ -12,7 +12,7 @@ const accentColor = atom({
 
 const menuState = atom({
     key : 'menuState',
-    default : false
+    default : true
 })
 
 export { menuState , modeState , accentColor }

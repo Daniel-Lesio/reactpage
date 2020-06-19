@@ -1,29 +1,31 @@
-import React , {useEffect} from 'react';
+import React , {   useEffect } from 'react';
 import {MFNav ,MFContainer} from '../Myframe/components';
 import { useSetRecoilState, useRecoilState , useRecoilValue } from 'recoil';
 import { menuState, modeState , accentColor } from '../Store/atoms';
 import { motion } from 'framer-motion';
 import Logo from './Logo';
+// import Logo from './Logo';
 
 const variants = {
     left: { x: 0 },
     right: { x: "-35px" },    
 }
 
-export default function Navbar() {
+const Navbar = () => {
     const [ mode , setMode ] = useRecoilState(modeState);
-    // const [ menu, toggleMenu] = useRecoilState(menuState)
     const setMenuState =  useSetRecoilState(menuState)
     const menu = useRecoilValue(menuState)
     const accent = useRecoilValue(accentColor)
-    useEffect(() => {
-        localStorage.setItem("lightmode" , mode.toString())
-    }, [mode]);
     
     useEffect(()=>{
-        let item =localStorage.getItem("lightmode")
-        console.log('local', item )
-    },[])
+        let stringBool = localStorage.getItem("lightmode")
+        const x = stringBool === "false" ? false : true 
+        setMode(x)
+    },[setMode])
+    useEffect(() => {
+        localStorage.setItem("lightmode" , mode.toString())
+        // changeSide(mode)
+    }, [mode]);
 
     return (
         <MFNav mode={mode.toString()} shadow >
@@ -31,20 +33,21 @@ export default function Navbar() {
                  <div className="menu">
                      <div 
                       onClick={ ()=>setMenuState(!menu) }
-                     className={ !menu ? "menu-btn menu-btn-active" : "menu-btn " }>
+                        className={ !menu ? "menu-btn menu-btn-active" : "menu-btn " }>
                             <span style={{ background : accent }} ></span>  
                             <span style={{ background : accent }}></span>  
                             <span style={{ background : accent }}></span>  
                      </div>
                  </div>
                     <Logo/>
-                 {/* <h1 style={{color : accent , fontSize : '24px' , margin:0 , padding:0}} className="brand">{menu.toString()}</h1> */}
                  <div className="nav-right">
-                     <div  className="switch" onClick={ ()=>setMode(!mode) }>
-                         <motion.div 
+                     <div  className="switch"  onClick={ ()=>setMode(!mode) }>
+                         <motion.div
+                            mode={mode.toString()} 
                             className="switch-circle"
-                            animate={ mode ? 'left' : "right" }
                             variants={variants}
+                            
+                            animate={ mode === true ? 'left' : "right" }
                          >
                          </motion.div>
                          <svg height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>            
@@ -55,3 +58,5 @@ export default function Navbar() {
         </MFNav>        
     )
 };
+
+export default  Navbar
